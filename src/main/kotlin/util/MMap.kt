@@ -32,6 +32,7 @@ inline fun readBytes(filePath: String, crossinline consumer: (Byte) -> Unit) {
         }
     }
 }
+
 fun readLinesMmap(filePath: String) = flow {
     RandomAccessFile(filePath, "r").use { file ->
         val channel = file.channel
