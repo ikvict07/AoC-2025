@@ -1,6 +1,7 @@
 package day1
 
 import util.readBytes
+import kotlin.system.measureTimeMillis
 
 
 const val right = 'R'.code.toByte()
@@ -51,7 +52,7 @@ inline fun part2() {
     var position = 50
     var result = 0
 
-    readBytes("src/main/resources/input3.txt") { byte ->
+    readBytes("src/main/resources/input.txt") { byte ->
         if (byte == nL) {
             val rotation = if (code == shortLeft) -number else number
             var endPosition = position + rotation
@@ -91,4 +92,8 @@ inline fun part2() {
     println(result)
 }
 
-fun main() = part2()
+fun main() {
+    println(measureTimeMillis {
+        part2()
+    })
+}
